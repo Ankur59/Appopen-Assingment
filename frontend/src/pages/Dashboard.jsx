@@ -9,30 +9,14 @@ const Dashboard = () => {
   const { updateAccessToken, clearAccessToken } = useAuth();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTimeLeft((prev) => prev - 1);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    if (timeLeft === 0) {
-      hitApi();
-    }
-  }, [timeLeft]);
-
-  const hitApi = async () => {
+  async function hitApi() {
     setLoading(true);
 
     try {
       const response = await axios.post(
         "http://localhost:8000/auth/refresh",
         {},
-        {
-          withCredentials: true,
-        }
+        { withCredentials: true }
       );
 
       updateAccessToken(response.data.accessToken);
@@ -45,12 +29,25 @@ const Dashboard = () => {
 
     setLoading(false);
     setTimeLeft(20);
-  };
-  console.log("ajsdasdasd");
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimeLeft((prev) => prev - 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (timeLeft === 0) {
+      Promise.resolve().then(() => hitApi());
+    }
+  }, [timeLeft]);
+
   return (
-    <div className="text-2xl bg-red-700">
+    <div className="text-2xl">
       {loading ? "Loading..." : `Next API call in: ${timeLeft}s`}
-      <span>jhjjjjjdjdfhf</span>
     </div>
   );
 };
