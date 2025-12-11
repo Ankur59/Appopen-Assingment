@@ -7,6 +7,7 @@ const handleGetTodos = async (req, res) => {
     try {
         const data = fs.readFileSync(FILE_PATH, "utf8");
         const todos = JSON.parse(data);
+        console.log("this are todos", todos)
         res.status(200).json(todos);
     } catch (error) {
         console.error("Error reading todos:", error);
