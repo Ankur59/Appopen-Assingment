@@ -1,8 +1,8 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Login from "./pages/login";
-import Dahsboard from "./pages/Dahsboard";
-import Tod from "./pages/Tod";
+import Dashboard from "./pages/Dashboard";
+import Todos from "./pages/Todos";
 import ProtectedRoute from "./hooks/checkAuth";
 
 function App() {
@@ -11,8 +11,8 @@ function App() {
       <Route path="/login" element={<Login />} />
 
       <Route element={<ProtectedRoute />}>
-      <Route path="/todos" element={<Tod />} />
-      <Route path="/dashboard" element={<Dahsboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/todos" element={<Todos />} />
       </Route>
     </Routes>
   );

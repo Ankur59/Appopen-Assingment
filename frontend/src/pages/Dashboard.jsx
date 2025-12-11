@@ -46,10 +46,11 @@ const Dashboard = () => {
     setLoading(false);
     setTimeLeft(20);
   };
-
+  console.log("ajsdasdasd");
   return (
-    <div style={{ fontSize: "2rem" }}>
+    <div className="text-2xl bg-red-700">
       {loading ? "Loading..." : `Next API call in: ${timeLeft}s`}
+      <span>jhjjjjjdjdfhf</span>
     </div>
   );
 };
