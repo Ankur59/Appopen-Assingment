@@ -48,6 +48,7 @@ const Dashboard = () => {
   return (
     <div className="text-2xl">
       {loading ? "Loading..." : `Next API call in: ${timeLeft}s`}
+      <button onClick={() => navigate("/todos")}>Click</button>
     </div>
   );
 };

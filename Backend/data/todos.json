@@ -7,17 +7,17 @@
   {
     "id": 2,
     "title": "Finish React assignment",
-    "completed": true
+    "completed": false
   },
   {
     "id": 3,
     "title": "Clean the room",
-    "completed": false
+    "completed": true
   },
   {
     "id": 4,
     "title": "Go for a walk",
-    "completed": false
+    "completed": true
   },
   {
     "id": 5,
@@ -26,7 +26,7 @@
   },
   {
     "id": 6,
-    "title": "Study Node file storage",
+    "title": "Study",
     "completed": false
   },
   {
@@ -37,6 +37,6 @@
   {
     "id": 8,
     "title": "Fix UI bugs in Todo App",
-    "completed": true
+    "completed": false
   }
 ]
