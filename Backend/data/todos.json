@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Buy groceries",
+    "completed": false
+  },
+  {
+    "id": 2,
+    "title": "Finish React assignment",
+    "completed": true
+  },
+  {
+    "id": 3,
+    "title": "Clean the room",
+    "completed": false
+  },
+  {
+    "id": 4,
+    "title": "Go for a walk",
+    "completed": false
+  },
+  {
+    "id": 5,
+    "title": "Prepare presentation slides",
+    "completed": true
+  },
+  {
+    "id": 6,
+    "title": "Study Node file storage",
+    "completed": false
+  },
+  {
+    "id": 7,
+    "title": "Practice algorithms",
+    "completed": false
+  },
+  {
+    "id": 8,
+    "title": "Fix UI bugs in Todo App",
+    "completed": true
+  }
+]

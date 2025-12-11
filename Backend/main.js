@@ -14,5 +14,6 @@ app.use(express.json())
 
 app.use("/auth", authRouter)
 
+
 app.listen(8000, () => console.log("Server started...."))
 
