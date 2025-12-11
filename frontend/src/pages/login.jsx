@@ -1,13 +1,29 @@
 import { useState } from "react";
+import { useAuth } from "../context/authContext";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const { updateAccessToken } = useAuth();
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    // sample logic
-    console.log("Logging in with email:", email);
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/auth/login",
+        { email },
+        { withCredentials: true }
+      );
+
+      updateAccessToken(response.data.accessToken);
+      navigate("/dashboard");
+    } catch (error) {
+      setError("Something went wrong");
+    }
   };
 
   return (
@@ -16,6 +32,7 @@ export default function Login() {
         onSubmit={handleLogin}
         className="bg-white p-6 rounded-lg shadow-md w-80"
       >
+        <span className="text-red-700">{error}</span>
         <h2 className="text-2xl font-semibold mb-4 text-center">Login</h2>
 
         <label className="block text-sm font-medium mb-1">Email</label>
